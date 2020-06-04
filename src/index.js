@@ -495,6 +495,10 @@ class MiniCssExtractPlugin {
           // no module found => there is a conflict
           // use list with fewest failed deps
           // and emit a warning
+          // TODO: if no bestMatch then break;
+          if (!bestMatch) {
+            break;
+          }
           const fallbackModule = bestMatch.pop();
 
           if (!this.options.ignoreOrder) {
